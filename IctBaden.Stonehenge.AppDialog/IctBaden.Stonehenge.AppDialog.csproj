@@ -14,18 +14,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\IctBaden.Stonehenge\IctBaden.Stonehenge.csproj" />
+        <ProjectReference Include="..\IctBaden.Stonehenge\IctBaden.Stonehenge.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Include="app\app-dialog.html" />
-      <None Remove="app\stypes\app-dialog.css" />
-      <EmbeddedResource Include="app\app-message-box.js" />
-      <EmbeddedResource Include="app\src\app-dialog.css" />
-      <None Remove="app\app-message-box.html" />
-      <EmbeddedResource Include="app\app-message-box.html" />
-      <None Remove="app\app-dialog.js" />
-      <EmbeddedResource Include="app\app-dialog.js" />
+        <EmbeddedResource Include="app\src\st-app-dialog.css"/>
+        <EmbeddedResource Include="app\st-app-message-box.html"/>
+        <EmbeddedResource Include="app\st-app-message-box.js"/>
+        <EmbeddedResource Include="app\st-app-dialog.html"/>
+        <EmbeddedResource Include="app\st-app-dialog.js"/>
     </ItemGroup>
 
 </Project>

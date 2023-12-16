@@ -181,13 +181,13 @@
 
     </div>
 
-    <app-message-box v-if="AppBoxVisible" :caption="AppBoxCaption" @ok="CloseAppBox()" okText="Schließen">
+    <st-app-message-box v-if="AppBoxVisible" :caption="AppBoxCaption" @ok="CloseAppBox()" okText="Schließen">
         <p>Dies ist der <b>{{AppBoxText}}</b></p>
-    </app-message-box>
+    </st-app-message-box>
 
-    <app-dialog v-if="AppDialogVisible" :caption="AppDialogCaption" @ok="CloseAppBox()" @cancel="CloseAppBox()">
+    <st-app-dialog v-if="AppDialogVisible" :caption="AppDialogCaption" @ok="CloseAppBox()" @cancel="CloseAppBox()">
         <input v-model="Test" v-select/>
         <button class="btn btn-sm btn-secondary" @click="Save(1,2)">Prefix with "1", append "2"</button>
-    </app-dialog>
+    </st-app-dialog>
 
 </div>

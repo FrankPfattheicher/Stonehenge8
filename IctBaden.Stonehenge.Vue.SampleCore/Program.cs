@@ -44,7 +44,7 @@ namespace IctBaden.Stonehenge.Vue.SampleCore
             {
                 Title = "VueSample",
 
-                ServerPushMode = ServerPushModes.LongPolling,
+                ServerPushMode = ServerPushModes.ServerSentEvents,
                 PollIntervalSec = 10,
                 HandleWindowResized = true,
                 CustomMiddleware = new []{ nameof(StonehengeRawContent) },

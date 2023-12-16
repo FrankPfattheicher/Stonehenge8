@@ -35,6 +35,7 @@ public class StartVm : ActiveViewModel
 
     public bool ShowCookies { get; private set; }
 
+    public string Test { get; set; } = "abc";
     public string Culture { get; set; } = string.Empty;
     public string UploadFile { get; set; } = string.Empty;
         
@@ -198,4 +199,11 @@ END:VCALENDAR
         ShowCookies = !ShowCookies;
         EnableRoute("cookie", ShowCookies);
     }
+    
+    [ActionMethod]
+    public void Save(string pre, string post)
+    {
+        Test = pre + Test + post;
+    }
+
 }

@@ -1,6 +1,6 @@
 
 mounted: function() {
-    console.log('app-message-box created');
+    console.log('st-app-message-box created');
 
     function dragElement(elmnt) {
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -47,5 +47,5 @@ mounted: function() {
     dragElement(this.$el);
 },
 updated: function() {
-    console.log('app-message-box updated');
+    console.log('st-app-message-box updated');
 }
