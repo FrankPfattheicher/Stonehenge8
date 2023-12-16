@@ -1,0 +1,17 @@
+﻿:root {
+    --fore-color: black;
+    --back-color: lightskyblue;
+}
+
+body {
+    color: var(--fore-color) !important;
+    background: var(--back-color) !important;
+}
+
+.page-host {
+    margin-left: 20px;
+}
+
+.tree-selected {
+    background-color: orange;
+}

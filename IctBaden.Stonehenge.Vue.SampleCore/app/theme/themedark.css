@@ -1,0 +1,17 @@
+﻿:root {
+    --fore-color: silver;
+    --back-color: #202020;
+}
+
+body {
+    color: var(--fore-color) !important;
+    background: var(--back-color) !important;
+}
+
+.page-host {
+    margin-left: 20px;
+}
+
+.tree-selected {
+    background-color: orange;
+}

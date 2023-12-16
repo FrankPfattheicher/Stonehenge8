@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "IctBaden.Stonehenge.Vue.SampleCore": {
+      "commandName": "Project",
+      "commandLineArgs": "/no_window "
+    }
+  }
+}

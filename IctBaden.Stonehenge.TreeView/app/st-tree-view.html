@@ -1,0 +1,8 @@
+<!--CustomElement:treeView-->
+<ul style="list-style-type: none; padding-left: 0;">
+    <st-tree-node v-for="child of treeView.RootNodes" :node="child" :key="child.Id"
+                  @change="$emit('change', $event)"
+                  @select="$emit('select', $event)" 
+                  @toggle="$emit('toggle', $event)">
+    </st-tree-node>
+</ul>

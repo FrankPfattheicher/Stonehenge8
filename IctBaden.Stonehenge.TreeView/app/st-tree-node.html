@@ -1,0 +1,22 @@
+<!--CustomElement:node-->
+<li v-if="node.IsVisible">
+    <div :class="node.Class" style="display: flow-root;">
+        <span v-if="node.HasChildren" class="tree-expand" :class="node.ExpandIcon" style="cursor: pointer; width: 1em; display: table-cell;"
+              @click="$emit('toggle', node.Id)"></span>
+        <span v-else class="tree-expand" :class="node.ExpandIcon" style="width: 1em; display: table-cell;"></span>
+        <span :class="node.Icon" @click="$emit('toggle', node.Id)" style="display: table-cell;"></span>
+        <span v-if="node.Checkbox" style="display: table-cell; padding-left: 0.5em;">
+            <input type="checkbox" style="cursor: pointer;" :checked="node.IsChecked" @change="$emit('change', node.Id)">
+        </span>
+        <span style="cursor: pointer; display: table-cell; padding-left: 0.5em; white-space: nowrap;" :title="node.Tooltip"
+              @click.exact="$emit('select', node.Id)" @dblclick.exact="$emit('toggle', node.Id)" v-html="node.Name">
+        </span>
+    </div>
+    <ul style="list-style-type: none;">
+        <st-tree-node v-for="child of node.Children" :node="child" :key="child.Id"
+                      @change="$emit('change', $event)"
+                      @select="$emit('select', $event)" 
+                      @toggle="$emit('toggle', $event)">
+        </st-tree-node>
+    </ul>
+</li>

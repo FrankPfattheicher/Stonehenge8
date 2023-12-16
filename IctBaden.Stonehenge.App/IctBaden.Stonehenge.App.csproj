@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <LangVersion>12</LangVersion>
+        <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+        <RootNamespace>IctBaden.Stonehenge.App</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\IctBaden.Stonehenge.Kestrel\IctBaden.Stonehenge.Kestrel.csproj" />
+      <ProjectReference Include="..\IctBaden.Stonehenge.Vue\IctBaden.Stonehenge.Vue.csproj" />
+      <ProjectReference Include="..\IctBaden.Stonehenge\IctBaden.Stonehenge.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.4" />
+    </ItemGroup>
+
+</Project>

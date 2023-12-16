@@ -1,0 +1,153 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Copyright>Copyright ©2013-2024 ICT Baden GmbH</Copyright>
+        <Company>ICT Baden GmbH</Company>
+        <Authors>Frank Pfattheicher</Authors>
+        <Product>Web Application Framework</Product>
+        <LangVersion>12</LangVersion>
+        <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+        <RootNamespace>IctBaden.Stonehenge.Vue</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove="app\favicon.ico" />
+        <None Remove="app\icon.png" />
+        <None Remove="app\index.html" />
+        <None Remove="app\styles\styles.css" />
+        <None Remove="Client\stonehengeApp.js" />
+        <None Remove="Client\stonehengeElement.js" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="app\favicon.ico" />
+        <EmbeddedResource Include="app\icon.png" />
+        <EmbeddedResource Include="app\index.html" />
+        <EmbeddedResource Include="app\src\bootstrap.bundle.js" />
+        <EmbeddedResource Include="app\src\bootstrap.esm.js" />
+        <EmbeddedResource Include="app\src\bootstrap.js" />
+        <EmbeddedResource Include="Client\stonehengeApp.js" />
+        <None Remove="Client\stonehengeComponent.js" />
+        <EmbeddedResource Include="Client\stonehengeComponent.js" />
+        <EmbeddedResource Include="Client\stonehengeElement.js" />
+        <None Remove="app\src\all.css" />
+        <None Remove="app\webfonts\fa-brands-400.eot" />
+        <None Remove="app\webfonts\fa-brands-400.svg" />
+        <None Remove="app\webfonts\fa-brands-400.ttf" />
+        <None Remove="app\webfonts\fa-brands-400.woff" />
+        <None Remove="app\webfonts\fa-brands-400.woff2" />
+        <None Remove="app\webfonts\fa-light-300.eot" />
+        <None Remove="app\webfonts\fa-light-300.svg" />
+        <None Remove="app\webfonts\fa-light-300.ttf" />
+        <None Remove="app\webfonts\fa-light-300.woff" />
+        <None Remove="app\webfonts\fa-light-300.woff2" />
+        <None Remove="app\webfonts\fa-regular-400.eot" />
+        <None Remove="app\webfonts\fa-regular-400.svg" />
+        <None Remove="app\webfonts\fa-regular-400.ttf" />
+        <None Remove="app\webfonts\fa-regular-400.woff" />
+        <None Remove="app\webfonts\fa-regular-400.woff2" />
+        <None Remove="app\webfonts\fa-solid-900.eot" />
+        <None Remove="app\webfonts\fa-solid-900.svg" />
+        <None Remove="app\webfonts\fa-solid-900.ttf" />
+        <None Remove="app\webfonts\fa-solid-900.woff" />
+        <None Remove="app\webfonts\fa-solid-900.woff2" />
+        <None Remove="app\src\bootstrap-grid.min.css" />
+        <None Remove="app\src\bootstrap-reboot.min.css" />
+        <None Remove="app\src\bootstrap.min.css" />
+        <EmbeddedResource Include="app\src\vue-router.js" />
+        <EmbeddedResource Include="app\styles\styles.css" />
+        <None Remove="app\src\vue.js" />
+        <EmbeddedResource Include="app\src\vue.js" />
+        <None Remove="app\src\vue.min.js" />
+        <EmbeddedResource Include="app\src\vue.min.js" />
+        <None Remove="app\src\bootstrap-grid.css" />
+        <None Remove="app\src\bootstrap-grid.css.map" />
+        <None Remove="app\src\bootstrap-grid.min.css.map" />
+        <None Remove="app\src\bootstrap-reboot.css" />
+        <None Remove="app\src\bootstrap-reboot.css.map" />
+        <None Remove="app\src\bootstrap-reboot.min.css.map" />
+        <None Remove="app\src\bootstrap.css" />
+        <None Remove="app\src\bootstrap.css.map" />
+        <None Remove="app\src\bootstrap.min.css.map" />
+        <None Remove="app\src\bootstrap-vue.min.css" />
+        <None Remove="app\src\bootstrap-vue.min.js" />
+        <None Remove="app\src\vue-router.min.js" />
+        <EmbeddedResource Include="app\src\vue-router.min.js" />
+        <None Remove="app\src\vue-resource.js" />
+        <EmbeddedResource Include="app\src\vue-resource.js" />
+        <None Remove="app\src\vue-resource.min.js" />
+        <EmbeddedResource Include="app\src\vue-resource.min.js" />
+        <None Remove="app\src\fontawesome_all.min.css" />
+        <None Remove="app\src\bootstrap.js" />
+        <None Remove="app\src\bootstrap-grid.rtl.min.css" />
+        <EmbeddedResource Include="app\src\bootstrap-grid.rtl.min.css" />
+        <None Remove="app\src\bootstrap-reboot.rtl.min.css" />
+        <EmbeddedResource Include="app\src\bootstrap-reboot.rtl.min.css" />
+        <None Remove="app\src\bootstrap-utilities.min.css" />
+        <EmbeddedResource Include="app\src\bootstrap-utilities.min.css" />
+        <None Remove="app\src\bootstrap-utilities.rtl.min.css" />
+        <EmbeddedResource Include="app\src\bootstrap-utilities.rtl.min.css" />
+        <None Remove="app\src\bootstrap.rtl.min.css" />
+        <EmbeddedResource Include="app\src\bootstrap.rtl.min.css" />
+        <None Remove="app\src\bootstrap.rtl.css" />
+        <EmbeddedResource Include="app\src\bootstrap.rtl.css" />
+        <None Remove="app\src\bootstrap-utilities.rtl.css" />
+        <EmbeddedResource Include="app\src\bootstrap-utilities.rtl.css" />
+        <None Remove="app\src\bootstrap-utilities.css" />
+        <EmbeddedResource Include="app\src\bootstrap-utilities.css" />
+        <None Remove="app\src\bootstrap-reboot.rtl.css" />
+        <EmbeddedResource Include="app\src\bootstrap-reboot.rtl.css" />
+        <None Remove="app\src\bootstrap-grid.rtl.css" />
+        <EmbeddedResource Include="app\src\bootstrap-grid.rtl.css" />
+        <EmbeddedResource Include="app\src\bootstrap.min.css" />
+        <EmbeddedResource Include="app\src\bootstrap-grid.min.css" />
+        <EmbeddedResource Include="app\src\bootstrap-reboot.css" />
+        <EmbeddedResource Include="app\src\bootstrap-reboot.min.css" />
+        <EmbeddedResource Include="app\src\bootstrap.css" />
+        <None Remove="app\src\bootstrap-vue.css" />
+        <None Remove="app\src\bootstrap-vue.js" />
+        <None Remove="app\src\bootstrap-ext.css" />
+        <EmbeddedResource Include="app\src\bootstrap-ext.css" />
+        <None Remove="app\webfonts\fa-v4compatibility.ttf" />
+        <EmbeddedResource Include="app\webfonts\fa-v4compatibility.ttf" />
+        <None Remove="app\webfonts\fa-v4compatibility.woff2" />
+        <EmbeddedResource Include="app\webfonts\fa-v4compatibility.woff2" />
+        <EmbeddedResource Include="app\webfonts\fa-brands-400.ttf" />
+        <EmbeddedResource Include="app\webfonts\fa-brands-400.woff2" />
+        <EmbeddedResource Include="app\webfonts\fa-regular-400.ttf" />
+        <EmbeddedResource Include="app\webfonts\fa-regular-400.woff2" />
+        <EmbeddedResource Include="app\webfonts\fa-solid-900.ttf" />
+        <EmbeddedResource Include="app\webfonts\fa-solid-900.woff2" />
+        <None Remove="app\src\fa_free_all.css" />
+        <None Remove="app\src\fa_free_all.min.css" />
+        <EmbeddedResource Include="app\src\fa_free_all.css" />
+        <EmbeddedResource Include="app\src\fa_free_all.min.css" />
+        <None Remove="app\src\bootstrap.bundle.min.js" />
+        <EmbeddedResource Include="app\src\bootstrap.bundle.min.js" />
+        <None Remove="app\src\bootstrap.esm.min.js" />
+        <EmbeddedResource Include="app\src\bootstrap.esm.min.js" />
+        <None Remove="app\src\bootstrap.min.js" />
+        <EmbeddedResource Include="app\src\bootstrap.min.js" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\IctBaden.Stonehenge\IctBaden.Stonehenge.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.4" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="app\src\bootstrap-vue.css" />
+      <EmbeddedResource Include="app\src\bootstrap-vue.js" />
+      <EmbeddedResource Include="app\src\bootstrap-vue.min.css" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="app\src\bootstrap-vue.min.js" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="app\src\bootstrap-grid.css" />
+      <Content Include="app\src\bootstrap-grid.css.map" />
+      <Content Include="app\src\bootstrap-grid.min.css.map" />
+      <Content Include="app\src\bootstrap-reboot.css.map" />
+      <Content Include="app\src\bootstrap-reboot.min.css.map" />
+      <Content Include="app\src\bootstrap.css.map" />
+      <Content Include="app\src\bootstrap.min.css.map" />
+    </ItemGroup>
+</Project>

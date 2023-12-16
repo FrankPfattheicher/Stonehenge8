@@ -1,0 +1,32 @@
+
+
+.st-drop-edit input[type=text] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.st-drop-edit label {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.st-drop-edit input[type=checkbox] {
+    display: none;
+}
+
+.st-drop-edit input[type=checkbox] ~ .st-drop-edit-items {
+    transform: scaleY(0);
+}
+
+.st-drop-edit input[type=checkbox]:checked ~ .st-drop-edit-items {
+    transform: scaleY(1);
+}
+
+.st-drop-edit-item {
+    color: var(--bs-gray-900);
+    cursor: pointer;
+}
+
+.st-drop-edit-item:hover {
+    background-color: var(--bs-gray-400);
+}

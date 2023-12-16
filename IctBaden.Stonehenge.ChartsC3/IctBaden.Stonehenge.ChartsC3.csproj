@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <RootNamespace>IctBaden.Stonehenge.Extension</RootNamespace>
+        <PackageVersion>1.0.1</PackageVersion>
+        <Authors>Frank Pfattheicher</Authors>
+        <Copyright>©2022 ICT Baden GmbH</Copyright>
+        <AssemblyVersion>1.0.1</AssemblyVersion>
+        <FileVersion>1.0.1</FileVersion>
+        <IsPackable>false</IsPackable>
+        <LangVersion>12</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\IctBaden.Stonehenge\IctBaden.Stonehenge.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="app\src\c3.css" />
+      <EmbeddedResource Include="app\src\c3.js" />
+      <EmbeddedResource Include="app\src\c3.min.css" />
+      <EmbeddedResource Include="app\src\c3.min.js" />
+      <EmbeddedResource Include="app\src\d3.js" />
+      <EmbeddedResource Include="app\src\d3.min.js" />
+      <EmbeddedResource Include="app\src\d3.v5.js" />
+      <EmbeddedResource Include="app\src\d3.v5.min.js" />
+      <EmbeddedResource Include="app\st-chart.html" />
+      <EmbeddedResource Include="app\st-chart.js" />
+      <EmbeddedResource Include="app\st-gauge.html" />
+      <EmbeddedResource Include="app\st-gauge.js" />
+      <EmbeddedResource Include="app\st-pie.html" />
+      <EmbeddedResource Include="app\st-pie.js" />
+      <EmbeddedResource Include="app\st-sankey.html" />
+      <EmbeddedResource Include="app\st-sankey.js" />
+      <None Remove="app\src\d3-sankey.js" />
+      <EmbeddedResource Include="app\src\d3-sankey.js" />
+      <None Remove="app\src\d3-sankey.min.js" />
+      <EmbeddedResource Include="app\src\d3-sankey.min.js" />
+    </ItemGroup>
+
+</Project>

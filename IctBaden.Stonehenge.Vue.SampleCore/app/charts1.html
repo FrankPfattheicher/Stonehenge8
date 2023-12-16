@@ -1,0 +1,51 @@
+<!--ViewModel:Charts1Vm-->
+<!--Title:Charts 1:25-->
+<div style="margin: 2em;">
+
+    <h3>Chart Controls</h3>
+    <p>
+        <b>Using C3 Charts</b> see <a href="https://c3js.org/gettingstarted.html" target="_blank">https://c3js.org/gettingstarted.html</a>
+    </p>
+
+    <p>
+        <label>
+            <input class="form-check-input" type="checkbox" v-model="ShowStacked" @change="ChangeShowStacked">
+            Show bars stacked
+        </label>
+    </p>
+
+    <p>
+        <b>Range</b>
+        <br/>
+        <datalist id="steplist">
+            <option>0</option>
+            <option>5</option>
+            <option>10</option>
+            <option>15</option>
+            <option>20</option>
+            <option>25</option>
+            <option>30</option>
+            <option>35</option>
+            <option>40</option>
+        </datalist>
+        <input type="range" style="width: 300px;" v-focus list="steplist"
+               :min="RangeMin" :max="RangeMax" v-model="Range"
+               @change="RangeChanged()"/>
+        {{Range}}%
+    </p>
+
+    <table>
+        <tr>
+            <td>
+                <div style="border: 1px solid gray; padding: 0.5em; display: inline-block;">
+                    <st-chart :chartdata="TrendChart" @clickData="ClickData(this.event.detail.index)"
+                              style="width: 50vw; height: 50vh; max-height: unset !important; "></st-chart>
+                </div>
+            </td>
+            <td>
+                <st-pie :piedata="PieChart" style="width: 40vw; height: 40vh; max-height: 1000px;"></st-pie>
+            </td>
+        </tr>
+    </table>
+
+</div>

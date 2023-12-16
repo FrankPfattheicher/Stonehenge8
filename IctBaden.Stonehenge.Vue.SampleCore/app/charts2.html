@@ -1,0 +1,39 @@
+<!--ViewModel:Charts2Vm-->
+<!--Title:Charts 2:30-->
+<div style="margin: 2em;">
+
+    <h3>Animated Graph</h3>
+
+    <p>
+        <b>C3 Chart</b> see <a href="https://c3js.org/gettingstarted.html" target="_blank">https://c3js.org/gettingstarted.html</a>
+        <br/>
+    </p>
+
+    <p>
+        <label>
+            <input class="form-check-input" type="checkbox" v-model="FullTimeRange" @change="ChangeFullTimeRange">
+            Show full time range
+        </label>
+    </p>
+    
+    <table style="fill: darkblue; font-size: 10pt; width: 100%; height: 50vh;">
+        
+        <tr>
+            <td style="border: 1px solid gray; padding: 0.5em; margin: 1em; width: 50%;">
+                <st-chart :chartdata="LineChart"></st-chart>    
+            </td>
+            <td style="border: 1px solid gray; padding: 0.5em; margin: 1em; width: 50%;">
+                <st-sankey :chartdata="SankeyChart"></st-sankey>    
+            </td>
+        </tr>
+        
+    </table>
+
+    <p>
+        &nbsp;<br>
+        <button class="btn btn-sm btn-secondary" @click="ToggleSpeed()">Change Speed</button>
+        &nbsp;<br>
+        {{Speed}}ms
+    </p>
+
+</div>

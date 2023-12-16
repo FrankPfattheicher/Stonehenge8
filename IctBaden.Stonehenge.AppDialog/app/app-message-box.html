@@ -1,0 +1,18 @@
+<!--CustomElement:caption,messageText,okText-->
+<div class="app-dialog">
+    <div class="app-dlg-caption">
+        {{caption}}
+        <div class="app-dlg-close" @click="$emit('ok')" title="Schließen">
+            &nbsp;<i class="fa-solid fa-square-xmark"></i>&nbsp;
+        </div>
+    </div>
+    <div style="margin: 2em;">
+        <p v-if="messageText">{{messageText}}</p>
+        <slot></slot>
+    </div>
+    <div style="text-align: right;">
+        <button class="btn btn-primary" @click="$emit('ok')" style="margin: 1em;">
+            &nbsp;&nbsp;{{okText ? okText : 'OK'}}&nbsp;&nbsp;
+        </button>
+    </div>
+</div>

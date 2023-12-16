@@ -1,0 +1,36 @@
+
+.app-dialog {
+    position: absolute;
+    z-index: 1000;
+    top: 4em;
+    left: 5em;
+    min-width: 60%;
+    background: silver;
+    border: 1px solid darkslategray;
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: 0 4px 20px 5px black;
+    padding: 0;
+}
+.app-dlg-caption {
+    color: white;
+    background-color: darkslategray;
+    font-size: 150%;
+    padding-left: 1.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    pointer-events: all;
+    cursor: move;
+}
+
+.app-dlg-close {
+    position: absolute;
+    font-weight: bold;
+    top: .3em;
+    right: .5em;
+    height: 2em;
+    cursor: pointer;
+    text-align: center;
+    padding-top: .2em;
+}
+

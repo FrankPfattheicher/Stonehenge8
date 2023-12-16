@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <LangVersion>12</LangVersion>
+        <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+        <AssemblyName>IctBaden.Stonehenge.Vue.TestApp2</AssemblyName>
+        <RootNamespace>IctBaden.Stonehenge.Vue.TestApp2</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="app\index.html" />
+      <EmbeddedResource Include="app\secondapp.html" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,193 @@
+<!--ViewModel:StartVm-->
+<!--Title:Intro:10-->
+<div>
+
+    <div class="row" style="margin: 2em;">
+
+        <div id="pagetop" class="col-md-12" style="padding: .5em; margin: .5em; border: 1px solid var(--fore-color);">
+
+            <h4 style="float: left;">
+                <i class="fas fa-play-circle"></i>&nbsp;Stonehenge V{{Version}}
+            </h4>
+
+            <p style="float: right;">
+                Uhrzeit: <span>{{TimeStamp}}</span>
+            </p>
+
+        </div>
+
+        <div class="col-md-3" style="padding: .5em; margin: .5em; border: 1px solid var(--fore-color);">
+
+            <p style="font-size: 80%;">
+                StonehengeInitialLoading = <span v-if="StonehengeInitialLoading"><b>TRUE</b></span><span
+                    v-else>false</span><br/>
+                StonehengeIsLoading = <span v-if="StonehengeIsLoading"><b>TRUE</b></span><span v-else>false</span><br/>
+                StonehengeIsDirty = <span v-if="StonehengeIsDirty"><b>TRUE</b></span><span v-else>false</span><br/>
+                StonehengePollFailures = {{StonehengePollFailures}}<br/>
+                StonehengeIsDisconnected = <span v-if="StonehengeIsDisconnected"><b>TRUE</b></span><span
+                    v-else>false</span><br/>
+                StonehengePostActive = <span v-if="StonehengePostActive"><b>TRUE</b></span><span
+                    v-else>false</span><br/>
+                StonehengeSession = {{StonehengeSession}}<br/>
+                Session.IsLocal = <span v-if="IsLocal"><b>TRUE</b></span><span v-else>false</span><br/>
+                Session.ClientAddress = {{ClientAddress}}<br/>
+                Session.UserIdentity = {{UserIdentity}}<br/>
+                Session.UserIdentityId = {{UserIdentityId}}<br/>
+                Session.UserIdentityEMail = {{UserIdentityEMail}}<br/>
+                Session.Parameters = {{Parameters}}<br/>
+                Session.Browser = {{Browser}}<br/>
+                Session.Platform = {{Platform}}<br/>
+                NotInitialized = {{NotInitialized}}<br/>
+            </p>
+
+        </div>
+
+        <div class="col-md-3" style="padding: .5em; margin: .5em; border: 1px solid var(--fore-color);">
+
+            <h4>
+                Data Inserted
+            </h4>
+
+            <p>
+                <button class="btn btn-sm btn-secondary" @click="ExecJavaScript()">Execute JavaScript Code</button>
+            </p>
+
+            <p id="insertion-point">
+            </p>
+
+        </div>
+
+        <div class="col-md-3" style="padding: .5em; margin: .5em; border: 1px solid var(--fore-color);">
+
+            <h4>
+                File Download
+            </h4>
+
+            <p>
+                <a href="/Data/Test.txt">Load user file Test.txt</a>
+            </p>
+            <p>
+                <a href="/Data/Date.ics">Termin</a>
+            </p>
+
+            <h4>
+                File Upload
+            </h4>
+
+            <input id="uploadFile" type="file" v-model="UploadFile" class="form-control">
+            <br>
+            <button class="btn btn-sm btn-secondary" 
+                    @click="window.UploadFile('/Data/Upload.exe', window.document.getElementById('uploadFile').files[0]);">
+                OK
+            </button>
+
+        </div>
+
+        <div class="col-md-3" style="padding: .5em; margin: .5em; border: 1px solid var(--fore-color);">
+
+            <h4>
+                Application commands
+            </h4>
+
+            <p>
+                <a href="#" onclick="AppCommand('FileOpen')">AppCommand FileOpen</a>
+            </p>
+
+        </div>
+
+        <div class="col-md-3" style="padding: .5em; margin: .5em; border: 1px solid var(--fore-color);">
+
+            <h4>
+                Culture
+            </h4>
+            <p>
+                <input v-model="Culture" class="form-control" style="width: 8em;"/>
+                <br>
+                <button class="btn btn-sm btn-secondary" @click="ChangeCulture()">Set Culture</button>
+            </p>
+        </div>
+
+        <div class="col-md-3" style="padding: .5em; margin: .5em; border: 1px solid var(--fore-color);">
+
+            <h4>
+                Message Boxes
+            </h4>
+            <p>
+                <button class="btn btn-sm btn-secondary" @click="ShowMessageBox()">Browser MessageBox</button>
+            </p>
+            <p>
+                <button class="btn btn-sm btn-secondary" @click="ShowAppBox()">App MessageBox</button>
+            </p>
+
+            <h4>
+                Dialog Boxes
+            </h4>
+            <p>
+                <button class="btn btn-sm btn-secondary" @click="ShowAppDialog()">App Dialog</button>
+            </p>
+
+        </div>
+
+
+        <div class="col-md-3" style="padding: .5em; margin: .5em; border: 1px solid var(--fore-color);">
+
+            <h4>
+                Navigate
+            </h4>
+            <p>
+                <a href="#/tree">Link To Tree</a>
+            </p>
+            <p>
+                <button class="btn btn-sm btn-secondary" @click="NavigateToTree()">Navigate To Tree</button>
+            </p>
+            <p>
+                <button class="btn btn-sm btn-secondary" @click="NavigateOnPage()">Navigate On Page (top of page)
+                </button>
+            </p>
+
+        </div>
+
+
+        <div class="col-md-3" style="padding: .5em; margin: .5em; border: 1px solid var(--fore-color);">
+
+            <h4>
+                Users
+            </h4>
+            <p>
+                <button class="btn btn-sm btn-secondary" @click="UserLogin()">Login</button>
+            </p>
+            <p>
+                <button class="btn btn-sm btn-secondary" @click="UserLogin()">Login</button>
+            </p>
+
+        </div>
+
+
+        <div class="col-md-3" style="padding: .5em; margin: .5em; border: 1px solid var(--fore-color);">
+
+            <h4>
+                Show / Hide Pages
+            </h4>
+            <p>
+                <b>Cookies-Page</b>
+                <br>
+                Currently visible: {{ShowCookies}}
+            </p>
+            <p>
+                <button class="btn btn-sm btn-secondary" @click="ToggleShowCookies()">Toggle</button>
+            </p>
+
+        </div>
+
+    </div>
+
+    <app-message-box v-if="AppBoxVisible" :caption="AppBoxCaption" @ok="CloseAppBox()" okText="Schließen">
+        <p>Dies ist der <b>{{AppBoxText}}</b></p>
+    </app-message-box>
+
+    <app-dialog v-if="AppDialogVisible" :caption="AppDialogCaption" @ok="CloseAppBox()" @cancel="CloseAppBox()">
+        <input v-model="Test" v-select/>
+        <button class="btn btn-sm btn-secondary" @click="Save(1,2)">Prefix with "1", append "2"</button>
+    </app-dialog>
+
+</div>

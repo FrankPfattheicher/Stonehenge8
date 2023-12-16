@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <LangVersion>12</LangVersion>
+        <RootNamespace>IctBaden.Stonehenge.DropEdit</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\IctBaden.Stonehenge\IctBaden.Stonehenge.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ViewModels\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="app\src\st-drop-edit.css" />
+      <EmbeddedResource Include="app\src\st-drop-edit.css" />
+      <None Remove="app\st-drop-edit.html" />
+      <EmbeddedResource Include="app\st-drop-edit.html" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,132 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IctBaden.Stonehenge", "IctBaden.Stonehenge\IctBaden.Stonehenge.csproj", "{6EDD2AF6-4B40-47E8-AF90-599EC3986A58}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IctBaden.Stonehenge.Kestrel", "IctBaden.Stonehenge.Kestrel\IctBaden.Stonehenge.Kestrel.csproj", "{AE823FE8-F7F0-4FC2-849C-D7C8DEB7FD58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "globals", "globals", "{FACB63A1-3EDF-4A5F-8C4B-94192FA4D9EF}"
+	ProjectSection(SolutionItems) = preProject
+		Stonehenge8-AssemblyInfo.cs = Stonehenge8-AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IctBaden.Stonehenge.Test", "IctBaden.Stonehenge.Test\IctBaden.Stonehenge.Test.csproj", "{A0260901-3014-4135-ADC2-5CD56774C9EF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IctBaden.Stonehenge.Vue", "IctBaden.Stonehenge.Vue\IctBaden.Stonehenge.Vue.csproj", "{0430C295-620D-4F24-9C3F-C5FD2EFADE59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IctBaden.Stonehenge.Vue.SampleCore", "IctBaden.Stonehenge.Vue.SampleCore\IctBaden.Stonehenge.Vue.SampleCore.csproj", "{FEF941AF-A7D7-4AB0-9E39-C8EA83CAF52E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Stonehenge.Vue.Test", "IctBaden.Stonehenge.Vue.Test\IctBaden.Stonehenge.Vue.Test.csproj", "{5077AA01-D943-4879-83A3-14EF6E377EB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E6072E69-0314-435C-9CEB-506063750C42}"
+ProjectSection(SolutionItems) = preProject
+	docs\GettingStarted.md = docs\GettingStarted.md
+	docs\Sample1.png = docs\Sample1.png
+	docs\Sample2.png = docs\Sample2.png
+	docs\IIS reverse.md = docs\IIS reverse.md
+	docs\IIS hosted.md = docs\IIS hosted.md
+	README.md = README.md
+	ReleaseNotes.md = ReleaseNotes.md
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Stonehenge.Vue.TestApp2", "IctBaden.Stonehenge.Vue.TestApp2\IctBaden.Stonehenge.Vue.TestApp2.csproj", "{EC4663D2-6DF5-40AA-9FF9-191307D6D918}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Stonehenge.App", "IctBaden.Stonehenge.App\IctBaden.Stonehenge.App.csproj", "{6A8DDB28-E367-4B15-8285-1F0632BC93AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Stonehenge.TreeView", "IctBaden.Stonehenge.TreeView\IctBaden.Stonehenge.TreeView.csproj", "{151398EB-410E-4CEB-9ED8-87D25554EE2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Stonehenge.ChartsC3", "IctBaden.Stonehenge.ChartsC3\IctBaden.Stonehenge.ChartsC3.csproj", "{6DF8625E-D17E-4CBA-9429-8E22A3CA60C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{62ACB6F4-1DBF-429D-8363-8B7111B31BD3}"
+	ProjectSection(SolutionItems) = preProject
+		icon64.png = icon64.png
+		Stonehenge.nuspec = Stonehenge.nuspec
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Stonehenge.AppDialog", "IctBaden.Stonehenge.AppDialog\IctBaden.Stonehenge.AppDialog.csproj", "{226CD4EF-21A7-4760-A750-CB4C3B01BB28}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{DBED7D7D-9A7B-4BCE-9B91-7F829C6F34AA}"
+	ProjectSection(SolutionItems) = preProject
+		publish.sh = publish.sh
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Stonehenge.DropEdit", "IctBaden.Stonehenge.DropEdit\IctBaden.Stonehenge.DropEdit.csproj", "{8AA92C70-3547-4A90-80B5-E16995F3AFDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{693A626F-DECC-4BCD-B509-63FDF4215679}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\develop.yml = .github\workflows\develop.yml
+		.github\workflows\main.yml = .github\workflows\main.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Stonehenge.Mermaid", "IctBaden.Stonehenge.Mermaid\IctBaden.Stonehenge.Mermaid.csproj", "{AB21770C-1B18-4441-8215-091B7ABA764A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EDD2AF6-4B40-47E8-AF90-599EC3986A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EDD2AF6-4B40-47E8-AF90-599EC3986A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EDD2AF6-4B40-47E8-AF90-599EC3986A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EDD2AF6-4B40-47E8-AF90-599EC3986A58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE823FE8-F7F0-4FC2-849C-D7C8DEB7FD58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE823FE8-F7F0-4FC2-849C-D7C8DEB7FD58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE823FE8-F7F0-4FC2-849C-D7C8DEB7FD58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE823FE8-F7F0-4FC2-849C-D7C8DEB7FD58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0260901-3014-4135-ADC2-5CD56774C9EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0260901-3014-4135-ADC2-5CD56774C9EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0260901-3014-4135-ADC2-5CD56774C9EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0260901-3014-4135-ADC2-5CD56774C9EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0430C295-620D-4F24-9C3F-C5FD2EFADE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0430C295-620D-4F24-9C3F-C5FD2EFADE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0430C295-620D-4F24-9C3F-C5FD2EFADE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0430C295-620D-4F24-9C3F-C5FD2EFADE59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEF941AF-A7D7-4AB0-9E39-C8EA83CAF52E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF941AF-A7D7-4AB0-9E39-C8EA83CAF52E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF941AF-A7D7-4AB0-9E39-C8EA83CAF52E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF941AF-A7D7-4AB0-9E39-C8EA83CAF52E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5077AA01-D943-4879-83A3-14EF6E377EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5077AA01-D943-4879-83A3-14EF6E377EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5077AA01-D943-4879-83A3-14EF6E377EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5077AA01-D943-4879-83A3-14EF6E377EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC4663D2-6DF5-40AA-9FF9-191307D6D918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC4663D2-6DF5-40AA-9FF9-191307D6D918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC4663D2-6DF5-40AA-9FF9-191307D6D918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC4663D2-6DF5-40AA-9FF9-191307D6D918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A8DDB28-E367-4B15-8285-1F0632BC93AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A8DDB28-E367-4B15-8285-1F0632BC93AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A8DDB28-E367-4B15-8285-1F0632BC93AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A8DDB28-E367-4B15-8285-1F0632BC93AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{151398EB-410E-4CEB-9ED8-87D25554EE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{151398EB-410E-4CEB-9ED8-87D25554EE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{151398EB-410E-4CEB-9ED8-87D25554EE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{151398EB-410E-4CEB-9ED8-87D25554EE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF8625E-D17E-4CBA-9429-8E22A3CA60C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF8625E-D17E-4CBA-9429-8E22A3CA60C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF8625E-D17E-4CBA-9429-8E22A3CA60C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF8625E-D17E-4CBA-9429-8E22A3CA60C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{226CD4EF-21A7-4760-A750-CB4C3B01BB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{226CD4EF-21A7-4760-A750-CB4C3B01BB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{226CD4EF-21A7-4760-A750-CB4C3B01BB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{226CD4EF-21A7-4760-A750-CB4C3B01BB28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA92C70-3547-4A90-80B5-E16995F3AFDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA92C70-3547-4A90-80B5-E16995F3AFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA92C70-3547-4A90-80B5-E16995F3AFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA92C70-3547-4A90-80B5-E16995F3AFDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB21770C-1B18-4441-8215-091B7ABA764A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB21770C-1B18-4441-8215-091B7ABA764A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB21770C-1B18-4441-8215-091B7ABA764A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB21770C-1B18-4441-8215-091B7ABA764A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9539958-55F6-4A19-87BE-4F17022BBFC2}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal

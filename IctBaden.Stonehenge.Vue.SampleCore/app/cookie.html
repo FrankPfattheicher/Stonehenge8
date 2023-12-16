@@ -1,0 +1,21 @@
+<!--ViewModel:CookieVm-->
+<!--Title:Cookies:-40-->
+<div style="margin: 2em;">
+
+    <h3>Cookies</h3>
+    <p>
+        Theme: {{Theme}},  Used CSS = 'theme{{Theme}}.css'<br />
+    </p>
+    <p>
+        <select v-model="Theme" v-focus
+                onchange="document.cookie='theme=' + this.value; location.reload();" >
+            <option value="">Light</option>
+            <option value="dark">Dark</option>
+            <option value="blue">Blue</option>
+        </select>
+    </p>
+    <p>
+        <button class="btn btn-sm btn-secondary" @click="GoBack()">Navigate Back</button>
+    </p>
+
+</div>

@@ -1,0 +1,9 @@
+
+
+.nav-link {
+    color: white !important;
+}
+
+.router-link-active {
+    font-weight: bold !important;
+}

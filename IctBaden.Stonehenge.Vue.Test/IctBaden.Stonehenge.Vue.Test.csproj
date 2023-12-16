@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <LangVersion>12</LangVersion>
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+    <RootNamespace>IctBaden.Stonehenge.Vue.Test</RootNamespace>
+    <AssemblyName>IctBaden.Stonehenge.Vue.Test</AssemblyName>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="app\start.html" />
+    <None Remove="app\styles\userstyles - Copy.css" />
+    <None Remove="app\styles\userstyles.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="app\cust-elem2.html" />
+    <Content Include="app\cust-elem3.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="app\dicomponent.html" />
+    <EmbeddedResource Include="app\hidden.html" />
+    <EmbeddedResource Include="app\start.html" />
+    <EmbeddedResource Include="app\scripts\userscripts.js" />
+    <EmbeddedResource Include="app\start_user.js" />
+    <EmbeddedResource Include="app\styles\userstyles.css" />
+    <None Remove="app\cust-elem1.html" />
+    <EmbeddedResource Include="app\cust-elem1.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
+    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit.runner.console" Version="2.5.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IctBaden.Stonehenge.Kestrel\IctBaden.Stonehenge.Kestrel.csproj" />
+    <ProjectReference Include="..\IctBaden.Stonehenge.Test\IctBaden.Stonehenge.Test.csproj" />
+    <ProjectReference Include="..\IctBaden.Stonehenge.Vue.TestApp2\IctBaden.Stonehenge.Vue.TestApp2.csproj" />
+    <ProjectReference Include="..\IctBaden.Stonehenge.Vue\IctBaden.Stonehenge.Vue.csproj" />
+    <ProjectReference Include="..\IctBaden.Stonehenge\IctBaden.Stonehenge.csproj" />
+  </ItemGroup>
+
+
+</Project>

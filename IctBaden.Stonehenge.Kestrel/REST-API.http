@@ -1,0 +1,6 @@
+
+
+POST http://localhost:32000/User/Test
+Content-Type: application/x-www-form-urlencoded
+
+field1=value1&field2=value2
