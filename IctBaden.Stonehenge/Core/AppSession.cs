@@ -97,11 +97,11 @@ public class AppSession : INotifyPropertyChanged, IDisposable
 
     private readonly int _eventTimeoutMs;
 
-    private readonly List<string> _events = new();
+    private readonly List<string> _events = [];
 
     private CancellationTokenSource? _eventRelease;
     private bool _forceUpdate;
-    private readonly List<string> _history = new();
+    private readonly List<string> _history = [];
 
     public string GetBackRoute()
     {
@@ -122,6 +122,18 @@ public class AppSession : INotifyPropertyChanged, IDisposable
     public readonly ILogger Logger;
 
     // ReSharper disable once ReturnTypeCanBeEnumerable.Global
+    private Task Wait(CancellationTokenSource cts, int milliseconds)
+    {
+        return Task.Delay(milliseconds, cts.Token)
+            .ContinueWith(_ =>
+            {
+                if (cts is { IsCancellationRequested: true })
+                {
+                    _forceUpdate = true;
+                }
+            }, TaskContinuationOptions.None);
+    }
+
     public async Task<string[]> CollectEvents()
     {
         IsWaitingForEvents = true;
@@ -131,19 +143,6 @@ public class AppSession : INotifyPropertyChanged, IDisposable
 
         // wait _eventTimeoutMs for events - if there is one - continue
         var max = _eventTimeoutMs / 100;
-
-        async Task Wait(CancellationTokenSource cts, int milliseconds)
-        {
-            await Task.Delay(milliseconds, cts.Token)
-                .ContinueWith(_ =>
-                {
-                    if (cts is { IsCancellationRequested: true })
-                    {
-                        _forceUpdate = true;
-                    }
-                }, TaskContinuationOptions.None)
-                .ConfigureAwait(false);
-        }
 
         while (!_forceUpdate && max > 0)
         {
@@ -175,6 +174,15 @@ public class AppSession : INotifyPropertyChanged, IDisposable
             var events = _events.ToArray();
             _events.Clear();
             return events;
+        }
+    }
+
+    public string GetNextEvent()
+    {
+        lock (_events)
+        {
+            var name = _events.FirstOrDefault();
+            return name ?? string.Empty;
         }
     }
 
@@ -587,6 +595,7 @@ public class AppSession : INotifyPropertyChanged, IDisposable
         _forceUpdate = true;
     }
 
+
     public void UpdateProperty(string name)
     {
         lock (_events)
@@ -599,7 +608,7 @@ public class AppSession : INotifyPropertyChanged, IDisposable
             _eventRelease?.Cancel();
         }
     }
-
+    
     public static string GetResourceETag(string path) => AppInstanceId + path.GetHashCode().ToString("x8");
 
     public override string ToString()

@@ -200,9 +200,20 @@ stonehengeViewModelName = function component() {
                         app.stonehengeViewModelName.model.StonehengeInitialLoading = false;
                         app.stonehengeViewModelName.model.StonehengeIsLoading = false;
                         if (!app.stonehengeViewModelName.model.StonehengePollEventsActive) {
-                            setTimeout(function () {
-                                app.stonehengeViewModelName.StonehengePollEvents(true);
-                            }, app.stonehengeViewModelName.model.StonehengePollDelay);
+                            // setTimeout(function () {
+                            //     app.stonehengeViewModelName.StonehengePollEvents(true);
+                            // }, app.stonehengeViewModelName.model.StonehengePollDelay);
+                        }
+                        if (!app.stonehengeViewModelName.model.StonehengeEventSource) {
+                            app.stonehengeViewModelName.model.StonehengeEventSource = new EventSource('EventSource/stonehengeViewModelName');
+                            app.stonehengeViewModelName.model.StonehengeEventSource.onmessage = function (message) {
+                                try {
+                                    let data = JSON.parse(message.data);
+                                    app.stonehengeViewModelName.StonehengeSetViewModelData(data);
+                                } catch(e) {
+                                    console.log("EX: " + e)
+                                }
+                            }
                         }
 
                     } catch(e) {
@@ -226,6 +237,7 @@ stonehengeViewModelName = function component() {
             StonehengeActive: false,
             StonehengePollEventsActive: null,
             StonehengePollDelay: stonehengePollDelay,
+            StonehengeEventSource: null,
             StonehengeInitialLoading: true,
             StonehengeIsLoading: true,
             StonehengeIsDirty: false,

@@ -44,6 +44,9 @@ internal class VueAppCreator
             
         _controllerTemplate = LoadResourceText(_vueAssembly, "IctBaden.Stonehenge.Vue.Client.stonehengeComponent.js");
         _elementTemplate = LoadResourceText(_vueAssembly, "IctBaden.Stonehenge.Vue.Client.stonehengeElement.js");
+
+        // if (options.ServerPushMode is ServerPushModes.WebSockets or ServerPushModes.ServerSentEvents)
+        //     throw new NotSupportedException("ServerPushMode");
     }
 
     private async Task<string> LoadResourceText(string resourceName)

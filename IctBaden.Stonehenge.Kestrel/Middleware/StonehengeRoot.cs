@@ -2,31 +2,24 @@
 using System.Web;
 using Microsoft.AspNetCore.Http;
 
-namespace IctBaden.Stonehenge.Kestrel.Middleware
+namespace IctBaden.Stonehenge.Kestrel.Middleware;
+
+// ReSharper disable once ClassNeverInstantiated.Global
+public class StonehengeRoot(RequestDelegate next)
 {
-    // ReSharper disable once ClassNeverInstantiated.Global
-    public class StonehengeRoot
+    // ReSharper disable once UnusedMember.Global
+
+    // ReSharper disable once UnusedMember.Global
+    public async Task Invoke(HttpContext context)
     {
-        private readonly RequestDelegate _next;
-
-        // ReSharper disable once UnusedMember.Global
-        public StonehengeRoot(RequestDelegate next)
+        var path = context.Request.Path.Value.Replace("//", "/");
+        if (path == "/")
         {
-            _next = next;
+            var query = HttpUtility.ParseQueryString(context.Request.QueryString.ToString() ?? string.Empty);
+            context.Response.Redirect($"/index.html?{query}");
+            return;
         }
 
-        // ReSharper disable once UnusedMember.Global
-        public async Task Invoke(HttpContext context)
-        {
-            var path = context.Request.Path.Value.Replace("//", "/");
-            if (path == "/")
-            {
-                var query = HttpUtility.ParseQueryString(context.Request.QueryString.ToString() ?? string.Empty);
-                context.Response.Redirect($"/index.html?{query}");
-                return;
-            }
-
-            await _next.Invoke(context);
-        }
+        await next.Invoke(context);
     }
 }
