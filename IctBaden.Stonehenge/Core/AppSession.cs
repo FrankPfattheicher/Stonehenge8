@@ -182,6 +182,7 @@ public class AppSession : INotifyPropertyChanged, IDisposable
         lock (_events)
         {
             var name = _events.FirstOrDefault();
+            _events.Clear();
             return name ?? string.Empty;
         }
     }

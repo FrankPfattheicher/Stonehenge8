@@ -103,7 +103,11 @@ public class StonehengeHostOptions
     /// to set session locale
     /// </summary>
     public bool UseClientLocale { get; set; }
-        
+
+    /// <summary>
+    /// Enables ServerSentEvent requests from client
+    /// </summary>
+    public bool UseServerSentEvents => ServerPushMode is ServerPushModes.Automatic or ServerPushModes.ServerSentEvents;
         
     /// <summary>
     /// Delay [ms] the client should wait for new poll.

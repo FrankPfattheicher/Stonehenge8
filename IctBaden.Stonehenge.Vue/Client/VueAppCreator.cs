@@ -45,8 +45,8 @@ internal class VueAppCreator
         _controllerTemplate = LoadResourceText(_vueAssembly, "IctBaden.Stonehenge.Vue.Client.stonehengeComponent.js");
         _elementTemplate = LoadResourceText(_vueAssembly, "IctBaden.Stonehenge.Vue.Client.stonehengeElement.js");
 
-        // if (options.ServerPushMode is ServerPushModes.WebSockets or ServerPushModes.ServerSentEvents)
-        //     throw new NotSupportedException("ServerPushMode");
+        if (options.ServerPushMode is ServerPushModes.WebSockets)
+            throw new NotSupportedException("ServerPushMode");
     }
 
     private async Task<string> LoadResourceText(string resourceName)
@@ -216,6 +216,7 @@ internal class VueAppCreator
             
         var text = _controllerTemplate
             .Replace("stonehengeDebugBuild", DebugBuild ? "true" : "false")
+            .Replace("stonehengeUseServerSentEvents", _options.UseServerSentEvents ? "true" : "false")
             .Replace("stonehengeViewModelName", vmName)
             .Replace("stonehengePollDelay", _options.GetPollDelayMs().ToString())
             .Replace("stonehengePollRetries", _options.PollRetries.ToString());

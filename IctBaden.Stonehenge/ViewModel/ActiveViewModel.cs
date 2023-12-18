@@ -32,10 +32,15 @@ using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Timers;
 using IctBaden.Stonehenge.Core;
 using IctBaden.Stonehenge.Resources;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Timer = System.Timers.Timer;
 
@@ -59,8 +64,13 @@ public class ActiveViewModel : DynamicObject, ICustomTypeDescriptor, INotifyProp
 
     class GetMemberBinderEx : GetMemberBinder
     {
-        public GetMemberBinderEx(string name) : base(name, false)
+        private GetMemberBinderEx(string name) : base(name, false)
         {
+        }
+
+        public static GetMemberBinderEx CreateInstance(string name)
+        {
+            return new GetMemberBinderEx(name);
         }
 
         public override DynamicMetaObject FallbackGetMember(DynamicMetaObject target,
@@ -70,12 +80,8 @@ public class ActiveViewModel : DynamicObject, ICustomTypeDescriptor, INotifyProp
         }
     }
 
-    class SetMemberBinderEx : SetMemberBinder
+    class SetMemberBinderEx(string name) : SetMemberBinder(name, false)
     {
-        public SetMemberBinderEx(string name) : base(name, false)
-        {
-        }
-
         public override DynamicMetaObject FallbackSetMember(DynamicMetaObject target, DynamicMetaObject value,
             DynamicMetaObject? errorSuggestion)
         {
@@ -104,7 +110,7 @@ public class ActiveViewModel : DynamicObject, ICustomTypeDescriptor, INotifyProp
             if (!(component is DynamicObject dynComponent))
                 return _originalDescriptor?.GetValue(component);
 
-            return dynComponent.TryGetMember(new GetMemberBinderEx(_propertyName), out var result)
+            return dynComponent.TryGetMember(GetMemberBinderEx.CreateInstance(_propertyName), out var result)
                 ? result
                 : _originalDescriptor?.GetValue(component);
         }
@@ -147,18 +153,11 @@ public class ActiveViewModel : DynamicObject, ICustomTypeDescriptor, INotifyProp
         }
     }
 
-    class PropertyInfoEx
+    class PropertyInfoEx(PropertyInfo pi, object obj, bool readOnly)
     {
-        public PropertyInfo Info { get; private set; }
-        public object Obj { get; private set; }
-        public bool ReadOnly { get; private set; }
-
-        public PropertyInfoEx(PropertyInfo pi, object obj, bool readOnly)
-        {
-            Info = pi;
-            Obj = obj;
-            ReadOnly = readOnly;
-        }
+        public PropertyInfo Info { get; private set; } = pi;
+        public object Obj { get; private set; } = obj;
+        public bool ReadOnly { get; private set; } = readOnly;
     }
 
     #endregion
@@ -233,7 +232,7 @@ public class ActiveViewModel : DynamicObject, ICustomTypeDescriptor, INotifyProp
 
     public object? TryGetMember(string name)
     {
-        TryGetMember(new GetMemberBinderEx(name), out var result);
+        TryGetMember(GetMemberBinderEx.CreateInstance(name), out var result);
         return result;
     }
 
@@ -438,17 +437,6 @@ public class ActiveViewModel : DynamicObject, ICustomTypeDescriptor, INotifyProp
     private void ExecuteHandler(PropertyChangedEventHandler handler, string name)
     {
         var args = new PropertyChangedEventArgs(name);
-        //var dispatcherObject = handler.Target as DispatcherObject;
-        //// If the subscriber is a DispatcherObject and different thread
-        //if (dispatcherObject != null && dispatcherObject.CheckAccess() == false)
-        //{
-        //    // Invoke handler in the target dispatcher's thread
-        //    dispatcherObject.Dispatcher.BeginInvoke(handler, DispatcherPriority.DataBind, this, args);
-        //}
-        //else // Execute handler as is
-        //{
-        //    handler(this, args);
-        //}
         handler(this, args);
     }
 
@@ -461,6 +449,8 @@ public class ActiveViewModel : DynamicObject, ICustomTypeDescriptor, INotifyProp
                      || _dictionary.ContainsKey(name)
             , "NotifyPropertyChanged for unknown property " + name);
 #endif
+        Task.Run(() => SendPropertyChanged(name)).Wait();
+        
         var handler = PropertyChanged;
         if (handler != null)
         {
@@ -502,6 +492,35 @@ public class ActiveViewModel : DynamicObject, ICustomTypeDescriptor, INotifyProp
 
     #endregion
 
+    #region ServerSentEvents
+
+    private HttpContext? _serverSentContext;
+    private CancellationTokenSource? _serverSentCancel;
+
+    private static readonly JsonSerializerOptions JsonOptions = new()
+    {
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        Converters = { new DoubleConverter() }
+    };
+
+    public async Task SendPropertiesChanged(HttpContext context)
+    {
+        _serverSentContext = context;
+        _serverSentCancel = new CancellationTokenSource();
+        await Task.WhenAny(Task.Delay(Timeout.Infinite, _serverSentCancel.Token));
+    }
+    private async Task SendPropertyChanged(string name)
+    {
+        if (_serverSentContext == null) return;
+        
+        var value = Encoding.UTF8.GetString(JsonSerializer.SerializeToUtf8Bytes(TryGetMember(name), JsonOptions));
+        var json = $"data: {{ \"{name}\":{value} }}\r\r";
+        await _serverSentContext.Response.WriteAsync(json);
+        await _serverSentContext.Response.Body.FlushAsync();
+    }
+    
+    #endregion
+    
     #region MessageBox
 
     public string MessageBoxTitle = string.Empty;
@@ -646,6 +665,9 @@ public class ActiveViewModel : DynamicObject, ICustomTypeDescriptor, INotifyProp
 
     public void Dispose()
     {
+        //_serverSentContext?.Abort();
+        _serverSentCancel?.Cancel();
+        
         StopUpdateTimer();
         OnDispose();
     }
