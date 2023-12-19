@@ -62,6 +62,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Stonehenge.Mermaid", "IctBaden.Stonehenge.Mermaid\IctBaden.Stonehenge.Mermaid.csproj", "{AB21770C-1B18-4441-8215-091B7ABA764A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Stonehenge.OpenStreetMap", "IctBaden.Stonehenge.OpenStreetMap\IctBaden.Stonehenge.OpenStreetMap.csproj", "{DA4FC01E-70C2-4F07-8DED-D5FB16F5430B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,6 +122,10 @@ Global
 		{AB21770C-1B18-4441-8215-091B7ABA764A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB21770C-1B18-4441-8215-091B7ABA764A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB21770C-1B18-4441-8215-091B7ABA764A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA4FC01E-70C2-4F07-8DED-D5FB16F5430B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4FC01E-70C2-4F07-8DED-D5FB16F5430B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA4FC01E-70C2-4F07-8DED-D5FB16F5430B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA4FC01E-70C2-4F07-8DED-D5FB16F5430B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

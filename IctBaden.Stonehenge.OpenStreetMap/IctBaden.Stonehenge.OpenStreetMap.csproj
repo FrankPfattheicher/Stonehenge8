@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>IctBaden.Stonehenge.Extension</RootNamespace>
+        <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+        <LangVersion>12</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\IctBaden.Stonehenge\IctBaden.Stonehenge.csproj" />
+    </ItemGroup>
+
+</Project>
