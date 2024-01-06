@@ -3,6 +3,7 @@
 using System;
 using System.IO;
 using System.Reflection;
+// ReSharper disable PropertyCanBeMadeInitOnly.Global
 
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Global
@@ -104,6 +105,11 @@ public class StonehengeHostOptions
     /// </summary>
     public bool UseClientLocale { get; set; }
 
+    /// <summary>
+    /// Timeout a session will be terminated without further access.
+    /// </summary>
+    public TimeSpan SessionTimeout { get; set; } = TimeSpan.FromMinutes(15);
+        
     /// <summary>
     /// Enables ServerSentEvent requests from client
     /// </summary>

@@ -454,7 +454,7 @@ public class AppSession : INotifyPropertyChanged, IDisposable
         _resourceLoader = resourceLoader;
         _userData = new Dictionary<string, object?>();
         _id = Guid.NewGuid();
-        SessionTimeout = TimeSpan.FromMinutes(15);
+        SessionTimeout = options.SessionTimeout;
         Cookies = new Dictionary<string, string>();
         Parameters = new Dictionary<string, string>();
         LastAccess = DateTime.Now;
