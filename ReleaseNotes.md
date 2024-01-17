@@ -1,4 +1,5 @@
 
+* 8.0.1 - 17.01.2024 st-app-dialog added property disableOk
 * 8.0.0 - 16.12.2023 Support net8.0 AND net6.0, options with SessionTimeout
 
 * 4.6.3 - 13.12.2023 Pie chart uses element size

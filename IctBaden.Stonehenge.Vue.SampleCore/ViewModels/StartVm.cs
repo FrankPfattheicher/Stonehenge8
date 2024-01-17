@@ -45,7 +45,8 @@ public class StartVm : ActiveViewModel
         
     public bool AppDialogVisible { get; private set; }
     public string AppDialogCaption { get; private set; } = string.Empty;
-        
+
+    public bool AppDialogDisableOk => string.IsNullOrEmpty(Test);
 
 
     public string Parameters =>

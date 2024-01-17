@@ -1,4 +1,4 @@
-<!--CustomElement:caption,cancelText,okText-->
+<!--CustomElement:caption,cancelText,okText,disableOk-->
 <div class="app-dialog">
     <div class="app-dlg-caption">
         {{caption}}
@@ -10,11 +10,11 @@
         <slot></slot>
     </div>
     <div style="text-align: right;">
-        <button class="btn btn-primary" @click="$emit('cancel')" style="margin: 1em;">
+        <button class="btn btn-primary" @click="$emit('cancel')" style="width: 10em; margin: 1em;">
             &nbsp;&nbsp;{{cancelText ? cancelText : 'Abbrechen'}}&nbsp;&nbsp;
         </button>
         &nbsp;&nbsp;
-        <button class="btn btn-primary" @click="$emit('ok')" style="margin: 1em;">
+        <button class="btn btn-primary" @click="$emit('ok')" :disabled="disableOk" style="width: 10em; margin: 1em;">
             &nbsp;&nbsp;{{okText ? okText : 'OK'}}&nbsp;&nbsp;
         </button>
     </div>
